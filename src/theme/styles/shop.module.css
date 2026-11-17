@@ -276,6 +276,8 @@
 }
 
 .card {
+  /* Holds the wishlist heart in the picture's top-right corner. */
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -524,6 +526,22 @@
 .search button:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
+}
+
+/* Tablets: three products a row, wider gutters. */
+@media (min-width: 640px) {
+  .page {
+    padding-inline: 24px;
+  }
+
+  .band {
+    padding-inline: 24px;
+  }
+
+  .grid,
+  .gridWide {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 900px) {

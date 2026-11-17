@@ -1,0 +1,395 @@
+/* Contact us page (pages/ContactPage.tsx) and its enquiry form (components/interactive/EnquiryForm.tsx).
+   Colours come from the tokens on .shell in layout.module.css. */
+
+/* Green intro band */
+
+.hero {
+  background: var(--hero-bg);
+  color: var(--hero-ink);
+}
+
+.heroInner {
+  display: flex;
+  box-sizing: border-box;
+  width: min(100%, 1240px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  margin-inline: auto;
+  padding: 48px 16px;
+}
+
+.eyebrow {
+  margin: 0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--gold-on);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: 36px;
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-spacing);
+  line-height: 1.1;
+}
+
+.lead {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--hero-soft);
+  font-size: 17px;
+}
+
+/* Details and form, side by side on desktop */
+
+.body {
+  display: grid;
+  box-sizing: border-box;
+  width: min(100%, 1240px);
+  align-items: start;
+  gap: 32px;
+  grid-template-columns: minmax(0, 1fr);
+  margin-inline: auto;
+  padding: 40px 16px 56px;
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: 24px;
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-spacing);
+  line-height: 1.2;
+}
+
+.info {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cards {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.badge {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--tint);
+  color: var(--accent);
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.mark {
+  width: 22px;
+  height: 22px;
+  fill: currentcolor;
+}
+
+.cardText {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.cardValue {
+  margin: 0;
+  color: var(--ink-soft);
+  overflow-wrap: anywhere;
+}
+
+.cardLink {
+  width: fit-content;
+  color: var(--accent);
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+.cardLink:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Enquiry form */
+
+.formCard {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 12px 32px rgb(27 42 29 / 8%);
+}
+
+.formLead {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.field small {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.field small[role='alert'] {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.field input {
+  min-height: 48px;
+  box-sizing: border-box;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) - 4px);
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+}
+
+.field input:focus {
+  border-color: var(--accent);
+  outline: 2px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  outline-offset: 0;
+}
+
+.field input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.choices {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.choices legend {
+  margin-bottom: 8px;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.choice,
+.choiceOn {
+  display: inline-flex;
+  min-height: 40px;
+  box-sizing: border-box;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.choiceOn {
+  border-color: var(--accent);
+  background: var(--tint);
+  color: var(--accent);
+}
+
+.choice input,
+.choiceOn input {
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.choice:focus-within,
+.choiceOn:focus-within {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.send {
+  display: inline-flex;
+  min-height: 50px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: var(--button-radius);
+  background: var(--accent);
+  color: var(--accent-ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+}
+
+.send:hover {
+  filter: brightness(1.1);
+}
+
+.send:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.unavailable {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--soft);
+  color: var(--ink-soft);
+}
+
+/* Why get in touch */
+
+.reasons {
+  padding-block: 48px;
+  background: var(--soft);
+}
+
+.reasonsInner {
+  box-sizing: border-box;
+  width: min(100%, 1240px);
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+.reasonList {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reason {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.reasonBody {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+@media (min-width: 640px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reasonList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .heroInner {
+    padding: 64px 32px;
+  }
+
+  .title {
+    font-size: 52px;
+  }
+
+  .body {
+    gap: 48px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    padding: 56px 32px 80px;
+  }
+
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .heading {
+    font-size: 30px;
+  }
+
+  .formCard {
+    padding: 32px;
+  }
+
+  .reasons {
+    padding-block: 64px;
+  }
+
+  .reasonsInner {
+    padding-inline: 32px;
+  }
+}

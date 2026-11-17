@@ -1,32 +1,240 @@
+/* Home page: pasture green hero, gold accents, cream sections. Colours come from the tokens on .shell. */
+
+.inner {
+  box-sizing: border-box;
+  width: min(100%, 1240px);
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+.kicker {
+  margin: 0 0 6px;
+  color: var(--gold-ink);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.heading {
+  max-width: 24ch;
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: 26px;
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-spacing);
+  line-height: 1.15;
+  text-transform: var(--heading-case);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+/* Hero */
+
 .hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 100% 0%, rgb(232 178 58 / 22%), transparent 45%),
+    radial-gradient(circle at 0% 100%, rgb(255 255 255 / 8%), transparent 40%),
+    var(--hero-bg);
+  color: var(--hero-ink);
+}
+
+/* Picture slider above the hero, at the pictures' own 2172 x 724 shape (components/interactive/HeroSlider.tsx). */
+.slider {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 2172 / 724;
+  background: var(--soft);
+}
+
+.slides {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+}
+
+.slide,
+.slideOn {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.slideOn {
+  opacity: 1;
+}
+
+.slideImage,
+.slideDesktop,
+.slideMobile {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Wide pictures from 640px up; the square mobile pictures below it. */
+.slideMobile {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .slider {
+    aspect-ratio: 1;
+  }
+
+  .slideDesktop {
+    display: none;
+  }
+
+  .slideMobile {
+    display: block;
+  }
+}
+
+.arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--hero-line);
+  border-radius: 999px;
+  background: rgb(0 0 0 / 35%);
+  color: var(--hero-ink);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background 0.2s;
+}
+
+.arrow:hover {
+  background: rgb(0 0 0 / 60%);
+}
+
+.arrowPrev {
+  left: 8px;
+}
+
+.arrowNext {
+  right: 8px;
+}
+
+.arrowIcon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.dots {
+  position: absolute;
+  z-index: 2;
+  bottom: 4px;
+  left: 50%;
+  display: flex;
+  height: 24px;
+  align-items: center;
+  gap: 4px;
+  transform: translateX(-50%);
+}
+
+/* Each dot is a 24px tap target around a 10px dot. */
+.dot,
+.dotOn {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.dot::before,
+.dotOn::before {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 55%);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 25%);
+  content: '';
+  transition: background 0.2s, transform 0.2s;
+}
+
+.dotOn::before {
+  background: var(--hero-ink);
+  transform: scale(1.2);
+}
+
+.arrow:focus-visible,
+.dot:focus-visible,
+.dotOn:focus-visible {
+  outline: 2px solid var(--hero-ink);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .slideOn {
+    transition: none;
+  }
+}
+
+.heroInner {
   display: grid;
   box-sizing: border-box;
   width: min(100%, 1240px);
   align-items: center;
-  gap: 24px;
+  gap: 32px;
   grid-template-columns: minmax(0, 1fr);
   margin-inline: auto;
-  padding: 44px 16px;
+  padding: 48px 16px 56px;
 }
 
 .copy {
   display: flex;
+  min-width: 0;
   flex-direction: column;
   align-items: flex-start;
   gap: 18px;
 }
 
-.picture {
-  min-height: 300px;
-  border-radius: var(--radius);
-  background: var(--picture);
+.eyebrow {
+  margin: 0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--gold-on);
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .title {
-  max-width: 14ch;
+  max-width: 20ch;
   margin: 0;
   font-family: var(--heading-font);
-  font-size: 34px;
+  font-size: 36px;
   font-weight: var(--heading-weight);
   letter-spacing: var(--heading-spacing);
   line-height: 1.05;
@@ -35,124 +243,136 @@
 }
 
 .lead {
-  max-width: 44ch;
+  max-width: 46ch;
   margin: 0;
-  color: var(--ink-soft);
-  font-size: 16px;
+  color: var(--hero-soft);
+  font-size: 17px;
   overflow-wrap: anywhere;
 }
 
-.button {
-  display: inline-flex;
-  min-height: 48px;
-  align-items: center;
-  justify-content: center;
-  padding: 0 26px;
-  border-radius: var(--button-radius);
-  background: var(--accent);
-  color: var(--accent-ink);
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.button:hover {
-  filter: brightness(0.94);
-}
-
-.button:focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
-}
-
-.heading {
-  max-width: 22ch;
-  margin: 0;
-  font-family: var(--heading-font);
-  font-size: 24px;
-  font-weight: var(--heading-weight);
-  letter-spacing: var(--heading-spacing);
-  line-height: 1.15;
-  text-transform: var(--heading-case);
-}
-
-.body {
-  max-width: 56ch;
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: 16px;
-}
-
-.banner {
+.actions {
   display: flex;
-  box-sizing: border-box;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  padding: 44px 16px;
-  background: var(--accent);
-  color: var(--accent-ink);
-  text-align: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.banner .heading,
-.banner .body {
-  color: var(--accent-ink);
-}
-
+.button,
+.ghost,
 .bannerButton {
   display: inline-flex;
   min-height: 48px;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
   padding: 0 26px;
   border-radius: var(--button-radius);
-  background: var(--accent-ink);
-  color: var(--accent);
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 800;
   text-decoration: none;
 }
 
+.button {
+  background: var(--gold);
+  color: var(--gold-on);
+}
+
+.ghost {
+  border: 2px solid var(--hero-line);
+  color: var(--hero-ink);
+}
+
+.button:hover,
 .bannerButton:hover {
   filter: brightness(0.94);
 }
 
-.bannerButton:focus-visible {
-  outline: 2px solid var(--accent-ink);
+.ghost:hover {
+  border-color: var(--hero-ink);
+}
+
+.button:focus-visible,
+.ghost:focus-visible {
+  outline: 2px solid var(--hero-ink);
   outline-offset: 2px;
 }
 
-@media (min-width: 900px) {
-  .hero {
-    gap: 56px;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    padding: 80px 32px;
-  }
-
-  .picture {
-    min-height: 0;
-    aspect-ratio: 4 / 5;
-  }
-
-  .title {
-    font-size: 60px;
-  }
-
-  .heading {
-    font-size: 34px;
-  }
-
-  .banner {
-    padding: 80px 56px;
-  }
+/* Hero highlights: a glass panel beside the copy (below it on phones). */
+.highlights {
+  display: grid;
+  min-width: 0;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
+
+.highlight {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: var(--radius);
+  background: var(--hero-panel);
+  backdrop-filter: blur(4px);
+  font-size: 16px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.highlightIcon {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--gold);
+  color: var(--gold-on);
+}
+
+/* Trust strip */
+
+.trust {
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.trustList {
+  display: grid;
+  box-sizing: border-box;
+  width: min(100%, 1240px);
+  gap: 14px 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0 auto;
+  padding: 20px 16px;
+  list-style: none;
+}
+
+.trustItem {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.trustItem .icon {
+  color: var(--accent);
+}
+
+/* Collection tiles */
 
 .tiles {
   display: grid;
   gap: 14px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin: 0;
+  margin: 18px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -178,21 +398,325 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.tile:hover .tileImage {
+  transform: scale(1.04);
 }
 
 .tileName {
   position: absolute;
+  right: 12px;
   bottom: 12px;
   left: 12px;
-  padding: 6px 12px;
-  border-radius: 999px;
+  overflow: hidden;
+  padding: 8px 12px;
+  border-radius: 10px;
   background: var(--surface);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Benefits */
+
+.benefits {
+  padding-block: 56px;
+  background: var(--soft);
+}
+
+.cards,
+.stepList {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card,
+.step {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.cardIcon {
+  display: inline-flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  border-radius: 12px;
+  background: var(--tint);
+  color: var(--accent);
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.cardBody {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+/* Feeding steps (numbered by a CSS counter) */
+
+.steps {
+  padding-block: 56px;
+}
+
+.stepList {
+  counter-reset: step;
+}
+
+.step {
+  counter-increment: step;
+}
+
+.stepNumber::before {
+  content: counter(step);
+}
+
+.stepNumber {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--gold-on);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+/* Bulk order banner */
+
+.banner {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 48px 16px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  text-align: center;
+}
+
+.bannerHeading {
+  max-width: 26ch;
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: 26px;
+  font-weight: var(--heading-weight);
+  line-height: 1.15;
+}
+
+.body {
+  max-width: 56ch;
+  margin: 0;
+  color: var(--hero-soft);
+  font-size: 16px;
+}
+
+.bannerButton {
+  background: var(--gold);
+  color: var(--gold-on);
+}
+
+.bannerButton:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 2px;
+}
+
+@media (max-width: 379px) {
+  .heroInner {
+    padding: 36px 12px 44px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .actions,
+  .button,
+  .ghost {
+    width: 100%;
+  }
+
+  .highlight {
+    padding: 12px 14px;
+    font-size: 15px;
+  }
+
+  .highlightIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .inner {
+    padding-inline: 12px;
+  }
+
+  .trustList {
+    grid-template-columns: minmax(0, 1fr);
+    padding-inline: 12px;
+  }
+
+  .card,
+  .step {
+    padding: 18px;
+  }
+
+  .banner {
+    padding-inline: 12px;
+  }
+}
+
+@media (min-width: 640px) {
+  .inner {
+    padding-inline: 24px;
+  }
+
+  .heroInner {
+    padding: 64px 24px;
+  }
+
+  .arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .arrowPrev {
+    left: 16px;
+  }
+
+  .arrowNext {
+    right: 16px;
+  }
+
+  .dots {
+    bottom: 12px;
+    height: 44px;
+  }
+
+  .title {
+    font-size: 46px;
+  }
+
+  .heading,
+  .bannerHeading {
+    font-size: 30px;
+  }
+
+  .highlights {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .highlight {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px;
+  }
+
+  .trustList {
+    padding-inline: 24px;
+  }
+
+  .tiles {
+    gap: 18px;
+  }
+
+  .banner {
+    padding: 56px 32px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stepList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 900px) {
+  .inner {
+    padding-inline: 32px;
+  }
+
+  .heroInner {
+    gap: 64px;
+    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+    padding: 88px 32px;
+  }
+
+  .highlights {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .highlight {
+    flex-direction: row;
+    align-items: center;
+    padding: 20px 22px;
+    font-size: 17px;
+  }
+
+  .highlightIcon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .title {
+    font-size: 58px;
+  }
+
+  .heading,
+  .bannerHeading {
+    font-size: 36px;
+  }
+
+  .trustList {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding-inline: 32px;
+  }
+
   .tiles {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .benefits,
+  .steps {
+    padding-block: 80px;
+  }
+
+  .banner {
+    padding: 72px 56px;
   }
 }

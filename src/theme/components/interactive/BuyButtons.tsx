@@ -2,6 +2,7 @@
 
 import { useId, useState } from 'react'
 import { AddToCart, BuyNow, Link, TextField, useStorefront, type GiftRecipient, type ProductPage } from '@dripfunnel/storefront-core/theme'
+import { WishlistButton } from './Wishlist'
 import shop from '../../styles/shop.module.css'
 import styles from '../../styles/product.module.css'
 
@@ -57,6 +58,7 @@ export const BuyButtons = ({ page }: { page: ProductPage }) => {
           {t('shop.product.buyNow')}
         </BuyNow>
       )}
+      {page.product ? <WishlistButton productId={page.product.id} versionId={version?.id ?? null} wide /> : null}
       {note ? (
         <p className={styles.added} role="status">
           {note === 'added' ? t('shop.product.added') : t('shop.product.addFailed')}{' '}

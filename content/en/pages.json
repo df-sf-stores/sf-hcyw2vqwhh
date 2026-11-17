@@ -53,7 +53,8 @@
     "title": "Your account",
     "lead": "Your orders and addresses in one place.",
     "orders": "Your orders",
-    "addresses": "Your addresses"
+    "addresses": "Your addresses",
+    "wishlist": "Your wishlist"
   },
   "addresses": {
     "title": "Your addresses",
@@ -81,15 +82,204 @@
     "lead": "The shop is closed for now. Please come back later."
   },
   "about": {
+    "kicker": "About us",
     "title": "About {store}",
-    "first": "Tell shoppers who you are and where {store} began.",
-    "second": "Say who you work with and what you care about. The studio can help you write it."
+    "lead": "We make Ayurvedic nutrition for dairy animals, so that every cow, calf and bull on your farm can grow strong, stay healthy and give its best.",
+    "logoAlt": "{store} logo: Towards Healthy Life",
+    "tagline": "Towards Healthy Life",
+    "story": {
+      "title": "Our story",
+      "first": "{store} began with a simple belief: a healthy herd starts with good nutrition. Minerals and vitamins are only a small part of what an animal eats, but when they run short the whole farm feels it, in lower milk, weaker calves, slower growth and missed breeding.",
+      "second": "So we set out to close those gaps. We blend pure Ayurvedic herbs with the essential macro and micro minerals, vitamins, protein, prebiotics and probiotics that dairy animals need, and pack them into simple supplements that mix straight into daily feed.",
+      "based": "We are based in {city}, {region}, and work with dairy farmers and dealers who want healthier animals and better returns."
+    },
+    "values": {
+      "title": "What we stand for",
+      "ayurveda": {
+        "title": "Rooted in Ayurveda",
+        "body": "Our formulations are built on pure Ayurvedic herbs, a tradition India's farmers have trusted for generations."
+      },
+      "complete": {
+        "title": "Complete nutrition",
+        "body": "Macro and micro minerals, vitamins, protein, prebiotics and probiotics, all in the right balance."
+      },
+      "herd": {
+        "title": "Care for the whole herd",
+        "body": "The healthy mother gives a healthy calf, and the quality bull makes the quality herd. We make something for each of them."
+      },
+      "farmer": {
+        "title": "Better returns for farmers",
+        "body": "Feeding a complete supplement all year round is simple, low-cost protection against the problems that cut into a farm's income."
+      }
+    },
+    "rangeAlt": "{store} products: PürMin, Calcio Forte, Mintrox and PürVit, for better growth, stronger immunity, higher milk production and overall wellness.",
+    "range": {
+      "title": "Our range",
+      "lead": "Advanced nutritional solutions for healthier livestock.",
+      "more": "Read more",
+      "posters": "Elixir and Ox'ellent",
+      "elixirPoster": "Elixir, The Amrut: an Ayurvedic nutritional supplement for cows and calves that improves milk yield, boosts immunity and supports growth and reproduction. Read more about Elixir.",
+      "oxellentPoster": "Ox'ellent, Power the Bull: an excellent Ayurvedic formulation for the bull that improves fertility and semen quality, tones muscle and supports growth and energy. Read more about Ox'ellent.",
+      "elixir": {
+        "name": "Elixir, The Amrut",
+        "body": "An Ayurvedic nutritional supplement and galactogogue for cows and calves, supporting lactation, immunity and healthy breeding."
+      },
+      "oxellent": {
+        "name": "Ox'ellent, Power the Bull",
+        "body": "An Ayurvedic formulation for the bull, with natural calcium, dietary fibres, vitamins, minerals, prebiotics and probiotics."
+      },
+      "puremin": {
+        "name": "PürMin",
+        "body": "A trace mineral mixture with 10 essential trace minerals, plus boron, chromium and selenium, for fertility, production and immunity."
+      },
+      "calcio": {
+        "name": "Calcio Forte",
+        "body": "A calcium powder with biotin, vitamins, minerals and energy, for strong bones and better milk yield."
+      },
+      "mintrox": {
+        "name": "Mintrox",
+        "body": "Rich in minerals and vitamins, to support growth, metabolism and feed efficiency."
+      },
+      "purevit": {
+        "name": "PürVit",
+        "body": "A multivitamin powder with vitamins A, D and E, niacinamide and biotin, for dairy animals' overall performance."
+      }
+    },
+    "shop": {
+      "title": "Shop our products",
+      "all": "See all products"
+    },
+    "note": "All our products are animal feed supplements. They are not for humans, and not for medicinal use.",
+    "cta": {
+      "title": "Let's build a healthier herd together",
+      "body": "Whether you run a dairy farm or a dealership, we would love to hear from you.",
+      "shop": "Shop now",
+      "contact": "Contact us"
+    }
   },
   "contact": {
-    "title": "Get in touch",
-    "lead": "Questions about an order or anything else? Write to us and we will reply.",
-    "email": "Email",
+    "eyebrow": "We are here to help",
+    "title": "Contact us",
+    "lead": "Questions about our cattle feed, bulk orders or becoming a dealer? Call, WhatsApp or send us an enquiry and our team will get back to you.",
+    "infoTitle": "Reach us",
+    "address": "Address",
+    "directions": "Get directions",
+    "directionsHref": "https://www.google.com/maps/search/?api=1&query={place}",
     "phone": "Phone",
-    "visit": "Visit"
+    "call": "Call us",
+    "whatsapp": "WhatsApp",
+    "chat": "Chat with us",
+    "email": "Email",
+    "reasonsTitle": "How we can help",
+    "reasons": {
+      "product": {
+        "title": "Product advice",
+        "body": "Not sure which feed or supplement suits your animals? Tell us about your herd and we will suggest the right one."
+      },
+      "bulk": {
+        "title": "Bulk orders",
+        "body": "Running a dairy farm or gaushala? Ask us for bulk pricing and regular delivery."
+      },
+      "dealer": {
+        "title": "Become a dealer",
+        "body": "Want to sell our products in your area? Send us an enquiry with your shop details."
+      }
+    },
+    "form": {
+      "title": "Send an enquiry",
+      "lead": "Fill in your details and press Send. WhatsApp opens with your enquiry ready to send to us.",
+      "name": "Your name",
+      "phone": "Mobile number",
+      "place": "Village / City",
+      "optional": "(optional)",
+      "type": "What is your enquiry about?",
+      "types": {
+        "product": "Product enquiry",
+        "bulk": "Bulk order",
+        "dealer": "Dealership",
+        "other": "Something else"
+      },
+      "animals": "Number of animals",
+      "message": "Your message",
+      "send": "Send enquiry",
+      "nameError": "Please enter your name.",
+      "phoneError": "Please enter a 10-digit mobile number.",
+      "messageError": "Please write your message.",
+      "unavailable": "Online enquiries are not available right now. Please call us instead.",
+      "whatsappHref": "https://wa.me/{phone}?text={text}",
+      "whatsappText": "New enquiry from the website\nName: {name}\nMobile: {phone}\nVillage / City: {place}\nEnquiry: {type}\nAnimals: {animals}\nMessage: {message}",
+      "none": "-",
+      "whatsappHrefLocal": "https://wa.me/91{phone}?text={text}",
+      "chatHref": "https://wa.me/{phone}",
+      "chatHrefLocal": "https://wa.me/91{phone}"
+    }
+  },
+  "wishlist": {
+    "title": "Your wishlist",
+    "lead": "Products you saved for later.",
+    "loading": "Loading your wishlist",
+    "signedOut": "Sign in to see your wishlist",
+    "signedOutLead": "Your saved products are kept with your account.",
+    "signIn": "Sign in",
+    "failed": "We couldn't load your wishlist",
+    "failedLead": "Check your connection and try again.",
+    "empty": "Your wishlist is empty",
+    "emptyLead": "Tap the heart on any product to save it here.",
+    "browse": "Browse products",
+    "addToCart": "Add to cart",
+    "choose": "Choose options",
+    "remove": "Remove",
+    "added": "Added to your cart.",
+    "addFailed": "That couldn't be added. Try again."
+  },
+  "oxellent": {
+    "coverAlt": "Ox'ellent pack beside a strong bull in a green pasture, with its main benefits: natural vitality, reproductive performance, less stress and natural immunity.",
+    "kicker": "Bull care · Ayurvedic nutrition",
+    "title": "Ox'ellent: power the bull, build a better herd",
+    "lead": "Ox'ellent is an Ayurvedic nutritional supplement made for breeding bulls. It brings natural calcium, dietary fibre, vitamins, minerals, prebiotics and probiotics together to support fertility, strength and everyday health.",
+    "why": {
+      "title": "Why bull fertility matters",
+      "first": "In every dairy and breeding herd, the bull's fertility is of paramount importance. One bull sires many calves, so his semen quality, libido and stamina shape the whole herd for years.",
+      "second": "A bull's nutritional status is one of the main things that decides the quality and quantity of his semen. Ox'ellent is made to fill that gap: it helps a bull reach his full fertile potential and improves his reproductive performance.",
+      "quote": "The quality bull makes the quality herd."
+    },
+    "posterAlt": "Ox'ellent poster: Power the Bull, an excellent Ayurvedic formulation for the bull, with a strong cartoon bull inside a ring of green leaves.",
+    "benefits": {
+      "title": "What Ox'ellent does",
+      "vitality": "Natural vitality booster",
+      "fertility": "Improves fertility and semen quality",
+      "libido": "Supports libido and mating performance",
+      "muscle": "Tones body muscle mass",
+      "brain": "Good for brain and body betterment",
+      "growth": "Supports growth and energy",
+      "stress": "Reduces stress and anxiety",
+      "resistance": "Increases resistance power",
+      "calf": "Helps faster growth of calves and bone formation",
+      "nutrients": "Natural source of protein, vitamins and minerals",
+      "immunity": "Natural antioxidant and immunity enhancer"
+    },
+    "inside": {
+      "title": "What's inside",
+      "lead": "An Ayurvedic nutritional supplement with a rich source of:",
+      "calcium": "Natural calcium",
+      "fibres": "Dietary fibres",
+      "vitamins": "Vitamins",
+      "minerals": "Minerals",
+      "biotics": "Prebiotics and probiotics"
+    },
+    "minerals": {
+      "title": "Why a complete mineral supplement pays off",
+      "first": "Minerals make up only a small part of what cattle eat, but they play a big role in how the animal performs. Marginal mineral deficiencies can easily go unnoticed, and they show up later as lower reproductive efficiency, poor growth and weaker immunity.",
+      "second": "All of these end up affecting your profit. Giving a complete mineral supplement all year round is cheap insurance against the many problems that mineral deficiencies bring."
+    },
+    "brochureAlt": "Ox'ellent brochure: why bull fertility matters, the full list of benefits, what the supplement contains, and why a complete mineral supplement helps cattle.",
+    "brochureCaption": "The Ox'ellent brochure from {store}.",
+    "notice": "Ox'ellent is an animal feed supplement. It is not for humans and not for medicinal use. Ask your veterinarian about the right amount for your bull.",
+    "cta": {
+      "title": "Give your bull the Ox'ellent edge",
+      "body": "Order for your farm, or talk to us about bulk orders for dairies, breeders and cooperatives.",
+      "shop": "Shop now",
+      "contact": "Ask about bulk orders"
+    }
   }
 }

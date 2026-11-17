@@ -1,25 +1,48 @@
 {
-  "announce": "Welcome. Fill your basket at your own pace",
+  "announce": "Quality cattle feed delivered to your farm. Bulk orders welcome.",
   "nav": {
     "label": "Main",
     "menu": "Menu",
     "shop": "Shop",
+    "categories": "Categories",
     "about": "About",
     "contact": "Contact"
   },
   "tools": {
     "search": "Search",
     "account": "Account",
-    "cart": "Cart"
+    "cart": "Cart",
+    "wishlist": "Wishlist",
+    "wishlistCount": "{count, plural, one {Wishlist, # product} other {Wishlist, # products}}",
+    "wishlistMany": "99+"
+  },
+  "floating": {
+    "top": "Back to top",
+    "whatsapp": "Chat with us"
   },
   "footer": {
-    "note": "Thank you for shopping with us.",
     "shop": "Shop",
     "all": "Shop all",
     "help": "Help",
     "shipping": "Shipping",
     "returns": "Returns",
     "privacy": "Privacy",
-    "terms": "Terms"
+    "terms": "Terms",
+    "contact": "Contact",
+    "whatsapp": "Chat on WhatsApp",
+    "phoneHref": "tel:{phone}",
+    "copyright": "© 2026 {store}. All rights reserved.",
+    "poweredBy": "Powered by",
+    "poweredUrl": "https://www.dripfunnel.com/in/",
+    "poweredLogo": "DripFunnel",
+    "slogan": "Towards Healthy Life",
+    "social": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "x": "X",
+      "youtube": "YouTube",
+      "tiktok": "TikTok",
+      "whatsapp": "WhatsApp"
+    }
   }
 }

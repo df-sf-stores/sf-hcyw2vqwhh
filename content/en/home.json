@@ -1,19 +1,87 @@
 {
   "hero": {
-    "title": "Fill your basket",
-    "lead": "Search by name and add what you need.",
-    "shop": "Start shopping"
+    "eyebrow": "Cattle feed for dairy farmers",
+    "title": "Better feed. More milk. A healthier herd.",
+    "lead": "Balanced cattle feed and supplements for cows and buffaloes, made to support milk yield, fat and everyday health.",
+    "shop": "Shop cattle feed",
+    "bulk": "Bulk orders",
+    "sack": "Balanced cattle feed",
+    "badgeProtein": "High protein",
+    "badgeMinerals": "Mineral enriched",
+    "slider": {
+      "label": "Featured cattle feed",
+      "kind": "carousel",
+      "previous": "Previous slide",
+      "next": "Next slide",
+      "dots": "Choose a slide",
+      "goTo": "Go to slide {n}",
+      "alt1": "Cattle feed slide 1",
+      "alt2": "Cattle feed slide 2",
+      "alt3": "Cattle feed slide 3"
+    }
   },
-  "banner": {
-    "title": "Find what you need",
-    "body": "Search the shop by name or type.",
-    "action": "Start shopping"
+  "trust": {
+    "label": "Why farmers choose us",
+    "nutrition": "Balanced nutrition",
+    "tested": "Quality tested",
+    "delivery": "Doorstep delivery",
+    "farmers": "Made for dairy farmers"
   },
   "collections": {
-    "title": "Explore Our Collections"
+    "kicker": "Our range",
+    "title": "Feed for every stage of your herd"
+  },
+  "benefits": {
+    "kicker": "Why it works",
+    "title": "Nutrition that shows in the milk can",
+    "milk": {
+      "title": "Supports milk yield",
+      "body": "Energy and protein in the right balance help your animals keep up steady milk production."
+    },
+    "fat": {
+      "title": "Better fat and SNF",
+      "body": "Quality ingredients support the fat and SNF your dairy pays for."
+    },
+    "immunity": {
+      "title": "Everyday health",
+      "body": "Added minerals and vitamins support immunity, digestion and a healthy coat."
+    },
+    "fertility": {
+      "title": "Healthy fertility",
+      "body": "Good nutrition supports regular heat cycles and healthy calving."
+    }
   },
   "newest": {
-    "title": "New in",
+    "title": "Popular products",
     "all": "See all"
+  },
+  "steps": {
+    "kicker": "How to feed",
+    "title": "Simple to start",
+    "choose": {
+      "title": "Choose the right feed",
+      "body": "Pick a feed for your animal's stage: calf, heifer, milking or dry."
+    },
+    "mix": {
+      "title": "Follow the pack guide",
+      "body": "Feed the amount on the pack alongside green and dry fodder, with clean water."
+    },
+    "feed": {
+      "title": "Stay consistent",
+      "body": "Feed at the same times every day and change feeds slowly over a week."
+    }
+  },
+  "banner": {
+    "title": "Running a dairy farm or dealership?",
+    "body": "Get bulk pricing and regular delivery for your herd. Tell us what you need and we will get back to you.",
+    "action": "Ask for bulk pricing"
+  },
+  "promo": {
+    "label": "Ox'ellent for bulls",
+    "alt": "Ox'ellent, Power the Bull: an Ayurvedic formulation for the bull. Read more about it."
+  },
+  "elixirPromo": {
+    "label": "Elixir for cows and calves",
+    "alt": "Elixir, The Amrut: an Ayurvedic nutritional supplement for cows and calves. Read more about it."
   }
 }

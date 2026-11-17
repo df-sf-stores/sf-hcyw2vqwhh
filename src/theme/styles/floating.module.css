@@ -1,0 +1,154 @@
+/* The top screen of the page; "Back to top" shows once this has scrolled out of view. */
+.marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100vh;
+  pointer-events: none;
+}
+
+/* Bottom-right stack: Back to top above the WhatsApp button. Under the sticky header (20). */
+.floating {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  /* Right-aligned, so the WhatsApp pill opens leftwards; Back to top centres over its 56px circle. */
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.top {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 6px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: 0 6px 18px rgb(27 42 29 / 16%);
+  color: var(--accent);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition-duration: 0.2s;
+  transition-property: opacity, transform, background-color, color;
+}
+
+.shown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+
+.top:hover {
+  background-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.topIcon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+/*
+ * WhatsApp's own green pill: "Chat with us" then the white mark. At rest it is clipped to the 56px circle around
+ * the mark; on hover or keyboard focus the clip opens leftwards to show the whole pill (clip-path, so no layout moves).
+ */
+.whatsapp {
+  display: inline-flex;
+  height: 56px;
+  box-sizing: border-box;
+  align-items: center;
+  gap: 12px;
+  padding-left: 22px;
+  border-radius: 999px;
+  background: #25d366;
+  clip-path: inset(0 0 0 calc(100% - 56px) round 28px);
+  color: #0b2614;
+  filter: drop-shadow(0 6px 12px rgb(0 0 0 / 22%));
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition-duration: 0.3s;
+  transition-property: clip-path;
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.whatsapp:hover,
+.whatsapp:focus-visible {
+  clip-path: inset(0 round 28px);
+}
+
+.whatsappLabel {
+  opacity: 0;
+  transform: translateX(8px);
+  transition-duration: 0.25s;
+  transition-property: opacity, transform;
+}
+
+.whatsapp:hover .whatsappLabel,
+.whatsapp:focus-visible .whatsappLabel {
+  opacity: 1;
+  transform: none;
+}
+
+/* The mark sits centred in the 56px circle at the pill's right end. */
+.whatsappMark {
+  display: inline-flex;
+  width: 56px;
+  height: 56px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsappIcon {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+.top:focus-visible,
+.whatsapp:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .top,
+  .whatsapp,
+  .whatsappLabel {
+    transition: none;
+  }
+}
+
+/* Roomier gutters from tablets up, matching the header's. */
+@media (min-width: 640px) {
+  .floating {
+    right: 24px;
+    bottom: 24px;
+  }
+}

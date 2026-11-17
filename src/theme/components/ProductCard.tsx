@@ -1,10 +1,12 @@
 import { Image, Link, Price, useStorefront, type ProductCard as Card } from '@dripfunnel/storefront-core/theme'
+import { WishlistButton } from './interactive/Wishlist'
 import styles from '../styles/shop.module.css'
 
 export const ProductCard = ({ product }: { product: Card }) => {
   const { store, locale, t } = useStorefront()
   return (
     <article className={styles.card}>
+      <WishlistButton productId={product.id} />
       <Link href={product.href} className={styles.cardLink}>
         <div className={styles.cardPicture}>
           {product.photo ? <Image image={product.photo} alt={product.photo.alt ?? product.name} ratio={0.8} sizes="(min-width: 900px) 25vw, 50vw" className={styles.cardImage} /> : <span className={styles.noPicture}>{t('shop.card.noPicture')}</span>}

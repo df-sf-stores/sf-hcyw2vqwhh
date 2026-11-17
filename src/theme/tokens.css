@@ -5,8 +5,8 @@
   --font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
+/* No margin here: .shell cancels the browser's 8px body margin itself (margin: -8px), and zeroing it twice made the page 16px too wide. */
 body {
-  margin: 0;
   background: var(--color-surface);
   color: var(--color-text);
   font-family: var(--font-body);

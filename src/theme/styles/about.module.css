@@ -1,0 +1,427 @@
+/* The About page (pages/AboutPage.tsx). Colours come from the tokens on .shell (layout.module.css). */
+
+.about {
+  display: flex;
+  box-sizing: border-box;
+  width: min(100%, 1240px);
+  flex-direction: column;
+  gap: 44px;
+  margin-inline: auto;
+  padding: 32px 16px 0;
+}
+
+/* Header: words beside the logo card from 900px; stacked on phones. */
+.hero {
+  display: grid;
+  align-items: center;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.kicker {
+  margin: 0;
+  color: var(--gold-ink);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: 34px;
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-spacing);
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+  text-transform: var(--heading-case);
+}
+
+.lead {
+  max-width: 58ch;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* The logo on white, so its dark lettering reads on any theme background. */
+.logoCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 28px 24px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: 0 10px 30px rgb(27 42 29 / 10%);
+}
+
+.logo {
+  display: block;
+  width: min(100%, 360px);
+  height: auto;
+}
+
+.tagline {
+  margin: 0;
+  color: #1f5c32;
+  font-family: var(--heading-font);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: var(--heading-weight);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: 26px;
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-spacing);
+  line-height: 1.15;
+  text-transform: var(--heading-case);
+}
+
+.body {
+  max-width: 70ch;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Four value cards: one column on phones, two on tablets, four on desktops. */
+.values {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.value {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.valueIcon {
+  display: inline-flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--tint);
+  color: var(--accent);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.valueTitle {
+  margin: 4px 0 0;
+  font-family: var(--heading-font);
+  font-size: 18px;
+  font-weight: var(--heading-weight);
+  line-height: 1.25;
+}
+
+.valueBody {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+/* Range picture: square on phones, wide from 640px. */
+.banner {
+  overflow: hidden;
+  margin-top: 4px;
+  border-radius: var(--radius);
+  background: var(--soft);
+}
+
+.wide {
+  display: none;
+}
+
+.square {
+  display: block;
+}
+
+.bannerImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Elixir and Ox'ellent banners: full width, one above the other. */
+.posters {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.poster {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--soft);
+  box-shadow: 0 8px 24px rgb(27 42 29 / 10%);
+  transition-duration: 0.2s;
+  transition-property: transform, box-shadow;
+}
+
+.poster:hover {
+  box-shadow: 0 14px 32px rgb(27 42 29 / 16%);
+  transform: translateY(-3px);
+}
+
+.poster:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.posterImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poster {
+    transition: none;
+  }
+
+  .poster:hover {
+    transform: none;
+  }
+}
+
+/* Range cards, each with a gold top edge. */
+.range {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.itemName {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--heading-font);
+  font-size: 18px;
+  font-weight: var(--heading-weight);
+}
+
+.itemBody {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+.more {
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.more:hover {
+  text-decoration-color: var(--gold);
+}
+
+.more:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.shopHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.note {
+  margin: 0;
+  padding: 16px 20px;
+  border: 1px solid color-mix(in srgb, var(--gold) 60%, transparent);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--gold) 14%, var(--surface));
+  font-size: 15px;
+}
+
+/* Closing call to action, in the hero's green. */
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 36px 20px;
+  border-radius: var(--radius);
+  background: var(--hero-bg);
+  color: var(--hero-ink);
+  text-align: center;
+}
+
+.ctaTitle {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: 26px;
+  font-weight: var(--heading-weight);
+  line-height: 1.15;
+}
+
+.ctaBody {
+  max-width: 52ch;
+  margin: 0;
+  color: var(--hero-soft);
+  font-size: 16px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  min-height: 48px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  border-radius: var(--button-radius);
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.primary {
+  background: var(--gold);
+  color: var(--gold-on);
+}
+
+.secondary {
+  border: 1px solid var(--hero-line);
+  color: var(--hero-ink);
+}
+
+.primary:hover {
+  filter: brightness(0.94);
+}
+
+.secondary:hover {
+  background: var(--hero-panel);
+}
+
+.primary:focus-visible,
+.secondary:focus-visible {
+  outline: 2px solid var(--hero-ink);
+  outline-offset: 2px;
+}
+
+@media (min-width: 640px) {
+  .about {
+    padding-inline: 24px;
+  }
+
+  .wide {
+    display: block;
+  }
+
+  .square {
+    display: none;
+  }
+
+  .values,
+  .range {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .posters {
+    gap: 24px;
+  }
+}
+
+@media (min-width: 900px) {
+  .about {
+    gap: 60px;
+    padding: 56px 32px 0;
+  }
+
+  .hero {
+    gap: 48px;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  }
+
+  .title {
+    font-size: 44px;
+  }
+
+  .heading {
+    font-size: 30px;
+  }
+
+  .values {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .range {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cta {
+    padding: 48px 32px;
+  }
+}

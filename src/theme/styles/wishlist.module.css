@@ -1,0 +1,173 @@
+/* Wishlist: the heart on product cards and the product page, the header count, and the Wishlist page. */
+
+.heart,
+.heartOn {
+  position: absolute;
+  z-index: 1;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 14%);
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform 0.15s, color 0.15s;
+}
+
+.heart:hover,
+.heartOn:hover {
+  transform: scale(1.08);
+}
+
+.heartIcon {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+  transition: fill 0.15s;
+}
+
+.heartOn,
+.wideOn {
+  color: var(--danger);
+}
+
+.heartOn .heartIcon,
+.wideOn .heartIcon {
+  fill: currentcolor;
+}
+
+/* The product page's button sits in .buy, on its own row under Add to cart and Buy now. */
+.wide,
+.wideOn {
+  display: inline-flex;
+  min-height: 48px;
+  flex: 1 1 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--button-radius);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.wideOn {
+  border-color: color-mix(in srgb, var(--danger) 40%, transparent);
+  background: color-mix(in srgb, var(--danger) 6%, var(--surface));
+}
+
+.wide:hover {
+  border-color: var(--ink);
+}
+
+.heart:disabled,
+.heartOn:disabled,
+.wide:disabled,
+.wideOn:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+.heart:focus-visible,
+.heartOn:focus-visible,
+.wide:focus-visible,
+.wideOn:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.problem {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--danger);
+  font-size: 14px;
+}
+
+/* Header heart with its count badge. */
+.headerLink {
+  position: relative;
+}
+
+.count {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  display: inline-flex;
+  min-width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Wishlist page: each card with its actions below. */
+.item {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.itemActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.itemActions > a,
+.itemActions > button {
+  flex: 1 1 120px;
+}
+
+.remove {
+  min-height: 44px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: var(--button-radius);
+  background: none;
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.remove:hover {
+  color: var(--danger);
+}
+
+.remove:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.note {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+}

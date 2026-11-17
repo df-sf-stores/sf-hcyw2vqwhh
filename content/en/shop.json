@@ -263,5 +263,13 @@
     "addAddress": "Add an address",
     "saveAddress": "Save address",
     "cancel": "Cancel"
+  },
+  "wishlist": {
+    "label": "Save to wishlist",
+    "add": "Add to wishlist",
+    "saved": "Saved to wishlist",
+    "limit": "Your wishlist is full. Remove a product to add another.",
+    "preview": "The wishlist works on the live shop, not in preview.",
+    "failed": "That didn't save. Try again."
   }
 }

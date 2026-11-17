@@ -18,10 +18,13 @@
     "accountOrder": "account/OrderPage",
     "policy": "PolicyPage",
     "notFound": "NotFoundPage",
-    "degraded": "DegradedPage"
+    "degraded": "DegradedPage",
+    "accountWishlist": "account/WishlistPage"
   },
   "custom": {
     "/about": "AboutPage",
-    "/contact": "ContactPage"
+    "/contact": "ContactPage",
+    "/elixir": "ElixirPage",
+    "/oxellent": "OxellentPage"
   }
 }

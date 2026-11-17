@@ -1,0 +1,67 @@
+{
+  "kicker": "Product story",
+  "title": "Elixir, The Amrut",
+  "lead": "An Ayurvedic nutritional supplement for cows and calves: a galactogogue, an antioxidant, a health rejuvenator and an immunity enhancer.",
+  "heroAlt": "Elixir, The Amrut: an Ayurvedic nutritional supplement for cows and calves, shown beside a cow, her calf and an Elixir pack.",
+  "quote": "The healthy mother gives a healthy calf.",
+  "what": {
+    "title": "What is Elixir?",
+    "first": "Elixir is a mineral mixture and feed supplement that cattle need for healthy growth and reproduction. A mother cow's nutrition is at the heart of a healthy herd.",
+    "second": "It is made from pure Ayurvedic herbs and carries all the essential macro and micro minerals, with natural sources of vitamins, minerals, protein, prebiotics and probiotics.",
+    "imageAlt": "Elixir poster: an Ayurvedic nutritional supplement, the best galactogogue and a health rejuvenator, with a cow and her calf in a meadow."
+  },
+  "why": {
+    "title": "Why Elixir for your cows?",
+    "first": "A complete mineral supplement can make a real difference to how your cattle perform. Minerals are only a small part of the diet, but they play a big role in a cow's overall health.",
+    "second": "Small mineral gaps can easily go unnoticed, and show up later as lower fertility, slower growth and weaker immunity, all of which cut into your farm's returns. Feeding a complete mineral supplement all year round is simple, low-cost protection against these problems."
+  },
+  "highlights": {
+    "label": "Elixir at a glance",
+    "ayurvedic": {
+      "title": "Pure Ayurvedic formulation",
+      "body": "Made from pure Ayurvedic herbs."
+    },
+    "minerals": {
+      "title": "Rich in vitamins and minerals",
+      "body": "Essential macro and micro minerals, with protein, prebiotics and probiotics."
+    },
+    "lactation": {
+      "title": "Supports lactation and overall health",
+      "body": "Helps improve milk fat, protein and SNF, and keeps the herd strong."
+    }
+  },
+  "benefits": {
+    "title": "What Elixir does for your herd",
+    "lead": "Mixed into daily feed, Elixir:",
+    "protein": "Gives a natural source of protein, vitamins, minerals, prebiotics and probiotics",
+    "milk": "Helps improve milk fat, protein and SNF",
+    "energy": "Supports growth and energy",
+    "breeding": "Helps with infertility and repeat breeding",
+    "conception": "Helps improve the rate of conception after AI",
+    "muscle": "Tones up body muscle mass",
+    "vitality": "Works as a natural vitality booster",
+    "stress": "Helps reduce stress and anxiety in cattle",
+    "resistance": "Builds resistance against disease",
+    "calf": "Supports faster growth and bone formation in young calves",
+    "ketosis": "Helps prevent ketosis in high milk-yielding cows",
+    "calving": "Keeps cows healthy before and after calving",
+    "mortality": "Helps cut down losses in the herd"
+  },
+  "gallery": {
+    "title": "From the Elixir leaflet",
+    "brochureAlt": "The Elixir leaflet: what Elixir is, the full list of its benefits, and why cows need a complete mineral supplement.",
+    "brochure": "The full Elixir leaflet.",
+    "posterAlt": "Elixir poster: an Ayurvedic nutritional supplement, the best galactogogue and a health rejuvenator, with a cow and her calf.",
+    "poster": "Elixir, The Amrut."
+  },
+  "note": {
+    "title": "Please note",
+    "body": "Elixir is an animal feed supplement. It is not for humans, and not for medicinal use."
+  },
+  "cta": {
+    "title": "Give your herd the Amrut",
+    "body": "Find Elixir in our shop, or talk to us about bulk orders for your farm or dealership.",
+    "shop": "Shop now",
+    "contact": "Contact us"
+  }
+}

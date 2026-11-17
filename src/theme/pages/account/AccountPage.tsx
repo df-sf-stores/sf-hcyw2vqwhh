@@ -15,6 +15,9 @@ export const AccountPage = () => {
           <Link href="/account/addresses/" className={styles.choice}>
             {t('pages.account.addresses')}
           </Link>
+          <Link href="/account/wishlist/" className={styles.choice}>
+            {t('pages.account.wishlist')}
+          </Link>
         </div>
       </PageIntro>
     </Layout>
