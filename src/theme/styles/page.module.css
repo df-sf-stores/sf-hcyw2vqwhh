@@ -70,6 +70,22 @@
   text-decoration: none;
 }
 
+.split {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: minmax(0, 1fr);
+  width: min(100%, 1240px);
+  gap: 24px;
+  margin-inline: auto;
+}
+
+.picture {
+  min-height: 280px;
+  margin-inline: 16px;
+  border-radius: var(--radius);
+  background: var(--picture-alt);
+}
+
 .details {
   display: grid;
   gap: 14px;
@@ -103,4 +119,13 @@
     font-size: 40px;
   }
 
+  .split {
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .picture {
+    min-height: 480px;
+    margin: 56px 32px 0 0;
+  }
 }

@@ -1,10 +1,9 @@
 'use client'
 
-import { useEffect, useId, useRef, useState } from 'react'
+import { useId, useState } from 'react'
 import { AddToCart, BuyNow, Link, TextField, useStorefront, type GiftRecipient, type ProductPage } from '@dripfunnel/storefront-core/theme'
 import shop from '../../styles/shop.module.css'
 import styles from '../../styles/product.module.css'
-import { WishlistHeart } from './WishlistHeart'
 
 const emailLike = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -14,8 +13,7 @@ const emailLike = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
  */
 export const BuyButtons = ({ page }: { page: ProductPage }) => {
   const { t } = useStorefront()
-  const [addedId, setAddedId] = useState<string | null>(null)
-  const [failed, setFailed] = useState(false)
+  const [note, setNote] = useState<'added' | 'failed' | null>(null)
   const [gift, setGift] = useState<GiftRecipient>({ recipientName: '', recipientEmail: '', sendOn: '', message: '' })
   const version = page.version
   const kind = page.product?.kind
@@ -25,16 +23,6 @@ export const BuyButtons = ({ page }: { page: ProductPage }) => {
   const set = (patch: Partial<GiftRecipient>) => setGift({ ...gift, ...patch })
   const why = useId()
   const waitsForRecipient = isGift && !giftReady
-  const added = version !== null && addedId === version.id
-  // A gift card keeps Add to cart, so a second one can go to someone else.
-  const inCart = added && !isGift
-  // Go to cart replaces the button just pressed, so focus moves to it rather than dropping to the page (WCAG 2.4.3).
-  const goToCart = useRef<HTMLAnchorElement>(null)
-  const justAdded = useRef(false)
-  useEffect(() => {
-    if (inCart && justAdded.current) goToCart.current?.focus()
-    justAdded.current = false
-  }, [inCart])
   return (
     <div className={styles.buy}>
       {kind?.kind === 'digital' ? (
@@ -61,36 +49,22 @@ export const BuyButtons = ({ page }: { page: ProductPage }) => {
           {t('shop.product.gift.needed')}
         </p>
       ) : null}
-      {inCart ? (
-        <Link href="/cart/" className={shop.primary} ref={goToCart}>
-          {t('shop.product.goToCart')}
-        </Link>
-      ) : (
-        <AddToCart
-          versionId={version?.id ?? null}
-          disabled={!buyable}
-          gift={isGift ? gift : null}
-          describedBy={waitsForRecipient ? why : undefined}
-          className={shop.primary}
-          onDone={(worked) => {
-            setFailed(!worked)
-            if (!worked) return
-            justAdded.current = true
-            setAddedId(version?.id ?? null)
-          }}
-        >
-          {isGift ? t('shop.product.gift.add') : t('shop.product.add')}
-        </AddToCart>
-      )}
+      <AddToCart versionId={version?.id ?? null} disabled={!buyable} gift={isGift ? gift : null} describedBy={waitsForRecipient ? why : undefined} className={shop.primary} onDone={(added) => setNote(added ? 'added' : 'failed')}>
+        {isGift ? t('shop.product.gift.add') : t('shop.product.add')}
+      </AddToCart>
       {isGift ? null : (
-        <BuyNow versionId={version?.id ?? null} disabled={!buyable} className={shop.secondary} onDone={(bought) => setFailed(!bought)}>
+        <BuyNow versionId={version?.id ?? null} disabled={!buyable} className={shop.secondary} onDone={(bought) => setNote(bought ? null : 'failed')}>
           {t('shop.product.buyNow')}
         </BuyNow>
       )}
-      {page.product ? <WishlistHeart productId={page.product.id} name={page.product.name} versionId={version?.id ?? null} /> : null}
-      {failed || added ? (
+      {note ? (
         <p className={styles.added} role="status">
-          {failed ? t('shop.product.addFailed') : t('shop.product.added')}
+          {note === 'added' ? t('shop.product.added') : t('shop.product.addFailed')}{' '}
+          {note === 'added' ? (
+            <Link href="/cart/" className={styles.viewCart}>
+              {t('shop.product.viewCart')}
+            </Link>
+          ) : null}
         </p>
       ) : null}
     </div>

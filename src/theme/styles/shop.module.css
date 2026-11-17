@@ -56,22 +56,32 @@
 .heading {
   margin: 0;
   font-family: var(--heading-font);
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1.15;
+  font-size: 22px;
+  font-weight: var(--heading-weight);
+  line-height: 1.2;
   text-transform: var(--heading-case);
 }
 
-.textLink {
-  color: var(--accent);
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
+.band {
+  display: flex;
+  box-sizing: border-box;
+  width: min(100%, 1240px);
+  flex-direction: column;
+  gap: 16px;
+  margin-inline: auto;
+  padding: 40px 16px 0;
 }
 
-.textLink:hover {
-  text-decoration: underline;
+.bandHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.textLink {
+  color: var(--ink);
+  font-size: 14px;
   text-underline-offset: 3px;
 }
 
@@ -80,17 +90,6 @@
   display: grid;
   gap: 16px;
   grid-template-columns: minmax(0, 1fr);
-}
-
-/* Names the product grid for screen readers, so card names follow a heading level in order. */
-.hiddenHeading {
-  position: absolute;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  margin: 0;
-  clip-path: inset(50%);
-  white-space: nowrap;
 }
 
 .results {
@@ -130,6 +129,7 @@
 
 .chip,
 .chipLink,
+.chipOn,
 .clear {
   display: inline-flex;
   min-height: 36px;
@@ -144,6 +144,12 @@
   font-size: 13px;
   text-decoration: none;
   cursor: pointer;
+}
+
+.chipOn {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--bg);
 }
 
 .clear {
@@ -271,32 +277,14 @@
 
 .card {
   display: flex;
-  height: 100%;
-  box-sizing: border-box;
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 8px 14px;
-  border: 1px solid rgb(179 165 147 / 25%);
-  border-radius: 16px;
-  background: var(--surface);
-  box-shadow: 0 1px 2px rgb(38 34 31 / 6%);
-  text-align: center;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  border-color: rgb(179 165 147 / 60%);
-  box-shadow: 0 22px 40px -24px rgb(47 43 40 / 55%);
-  transform: translateY(-4px);
+  gap: 6px;
 }
 
 .cardLink {
   display: flex;
-  width: 100%;
   flex-direction: column;
-  align-items: center;
-  gap: 12px;
+  gap: 10px;
   color: var(--ink);
   text-decoration: none;
 }
@@ -306,30 +294,19 @@
   outline-offset: 3px;
 }
 
-/* The arched frame echoes a temple doorway. */
 .cardPicture {
   position: relative;
   overflow: hidden;
-  width: 100%;
-  box-sizing: border-box;
   aspect-ratio: 4 / 5;
-  border: 1px solid rgb(179 165 147 / 45%);
-  border-radius: 999px 999px 12px 12px;
-  background: var(--surface);
+  border-radius: var(--radius);
+  background: var(--picture-alt);
 }
 
-.card:hover .cardPicture {
-  border-color: var(--taupe);
-}
-
-/* A photo that fails to load shows as a soft panel, not its alt text; the name sits right below. */
 .cardImage {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  background-color: var(--soft);
-  color: transparent;
 }
 
 .noPicture {
@@ -342,15 +319,14 @@
 .badge,
 .soldOut {
   position: absolute;
-  top: 18%;
+  top: 10px;
   left: 10px;
   padding: 3px 10px;
   border-radius: 999px;
-  background: var(--accent);
-  color: var(--accent-ink);
-  font-size: 11px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.05em;
 }
 
 .soldOut {
@@ -363,77 +339,19 @@
 }
 
 .cardName {
-  display: -webkit-box;
-  overflow: hidden;
   margin: 0;
-  padding-inline: 4px;
-  font-family: var(--heading-font);
-  font-size: 17px;
-  font-weight: var(--heading-weight);
-  line-height: 1.3;
-  overflow-wrap: anywhere;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
-/* A small taupe diamond between two fading rules. */
-.cardRule {
-  width: min(100%, 112px);
-  height: 8px;
-  background:
-    conic-gradient(from 45deg at 50% 50%, var(--taupe) 90deg, transparent 0) center / 6px 6px no-repeat,
-    linear-gradient(to right, transparent, var(--taupe) 42%, transparent 42% 58%, var(--taupe) 58%, transparent) center / 100% 1px no-repeat;
-}
-
-.cardMore {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  margin-top: auto;
-  padding-top: 4px;
-  color: var(--muted);
-  font-size: 11px;
+  font-family: var(--body-font);
+  font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.2em;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.card:hover .cardMore,
-.card:hover .cardName {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.cardMoreIcon {
-  width: 12px;
-  height: 12px;
-  fill: none;
-  stroke: currentcolor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 2;
-  transition: transform 0.3s ease;
-}
-
-.card:hover .cardMoreIcon {
-  transform: translateX(2px);
-}
-
-.cardMore:focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
+  overflow-wrap: anywhere;
 }
 
 .cardPrice {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  justify-content: center;
   gap: 4px;
   margin: 0;
-  color: var(--accent);
   font-size: 15px;
 }
 
@@ -443,8 +361,7 @@
 
 .price {
   display: inline-block;
-  --df-price-size: 16px;
-  --df-sealed-color: var(--accent);
+  --df-price-size: 15px;
   --df-sealed-size: 12px;
 }
 
@@ -465,7 +382,7 @@
 
 .skeletonPicture {
   aspect-ratio: 4 / 5;
-  border-radius: 999px 999px 8px 8px;
+  border-radius: var(--radius);
   background: var(--soft);
 }
 
@@ -595,6 +512,7 @@
 
 .chip:focus-visible,
 .chipLink:focus-visible,
+.chipOn:focus-visible,
 .clear:focus-visible,
 .filterToggle:focus-visible,
 .primary:focus-visible,
@@ -617,8 +535,8 @@
     font-size: 36px;
   }
 
-  .heading {
-    font-size: 36px;
+  .band {
+    padding: 56px 32px 0;
   }
 
   .listingFiltered {
@@ -646,87 +564,8 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .band .grid,
   .gridWide {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-}
-
-.priceRange {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding-top: 4px;
-}
-
-.priceTrack {
-  height: 28px;
-  margin: 0 9px;
-  cursor: pointer;
-}
-
-.priceRail {
-  position: absolute;
-  top: 12px;
-  right: 0;
-  left: 0;
-  height: 4px;
-  border-radius: 2px;
-  background: var(--line);
-}
-
-.priceFill {
-  top: 12px;
-  height: 4px;
-  border-radius: 2px;
-  background: var(--accent);
-}
-
-.priceTick {
-  top: 22px;
-  width: 3px;
-  height: 3px;
-  margin-left: -1.5px;
-  border-radius: 50%;
-  background: var(--muted);
-}
-
-.priceThumb {
-  top: 5px;
-  width: 18px;
-  height: 18px;
-  box-sizing: border-box;
-  border: 2px solid var(--accent);
-  border-radius: 50%;
-  background: var(--surface);
-  cursor: grab;
-}
-
-.priceThumb:focus-visible,
-.priceSelect:focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
-}
-
-.priceEnds {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.priceSelect {
-  min-width: 0;
-  min-height: 40px;
-  flex: 1;
-  padding: 0 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--button-radius);
-  background: var(--surface);
-  color: var(--ink);
-  font: inherit;
-}
-
-.priceTo {
-  flex: none;
 }

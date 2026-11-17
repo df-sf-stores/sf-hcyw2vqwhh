@@ -5,11 +5,9 @@
   "card": {
     "from": "From",
     "soldOut": "Sold out",
-    "noPicture": "No picture yet",
-    "view": "View details"
+    "noPicture": "No picture yet"
   },
   "listing": {
-    "heading": "Products",
     "showing": "{count, plural, one {Showing # product} other {Showing # products}}",
     "filters": "Filters",
     "filtersShown": "Hide filters",
@@ -23,8 +21,7 @@
       "priceHigh": "Price, high to low",
       "name": "Name"
     },
-    "price": "Price",
-    "loadingMore": "Loading more products…",
+    "more": "Load more",
     "moreFailed": "More products didn't load. Try again.",
     "empty": "No products match these filters",
     "emptyLead": "Remove a filter or clear them all to see more.",
@@ -74,7 +71,7 @@
     "buyNow": "Buy now",
     "added": "Added to your cart.",
     "addFailed": "We couldn't add that. Try again.",
-    "goToCart": "Go to cart",
+    "viewCart": "View cart",
     "download": "A download: {times, plural, one {# download} other {# downloads}} within {days, plural, one {# day} other {# days}} of paying.",
     "downloadPlain": "A download, ready once you've paid.",
     "service": "A service: we'll be in touch to arrange it.",
@@ -142,7 +139,6 @@
     "change": "Change",
     "changeStep": "Change {step}",
     "continue": "Continue",
-    "keepAddress": "Save this address to my account",
     "haveAccount": "Have an account? Sign in for saved addresses, or carry on as a guest.",
     "signIn": "Sign in",
     "email": "Email",
@@ -223,16 +219,6 @@
     "giftOn": "We email the gift card to {name} on {date}, and send you a copy.",
     "giftNow": "We've emailed the gift card to {name}, and sent you a copy."
   },
-  "orders": {
-    "title": "Orders",
-    "loading": "Loading your orders…",
-    "failed": "We couldn't load your orders",
-    "empty": "No orders yet",
-    "emptyLead": "When you place an order, it shows here.",
-    "items": "{count, plural, one {# item} other {# items}}",
-    "loadMore": "Load more",
-    "loadMoreFailed": "We couldn't load more orders. Try again."
-  },
   "account": {
     "preview": "Signing in works on the live shop. On this preview you check out as a guest.",
     "how": "How to sign in",
@@ -276,24 +262,6 @@
     "newAddress": "New address",
     "addAddress": "Add an address",
     "saveAddress": "Save address",
-    "cancel": "Cancel",
-    "noPassword": "This shop signs you in with a code sent to your mobile number, so there is no password to reset."
-  },
-  "wishlist": {
-    "title": "Wishlist",
-    "loading": "Loading your wishlist…",
-    "loadFailed": "We couldn't load your wishlist",
-    "empty": "Nothing on your wishlist yet",
-    "emptyLead": "Tap the heart on a product to keep it here.",
-    "heart": "Save {name} to your wishlist",
-    "full": "Your wishlist is full. Remove something to save more.",
-    "failed": "We couldn't change your wishlist. Try again.",
-    "add": "Add to cart",
-    "added": "Added to cart",
-    "addFailed": "We couldn't add that to your cart. Try again.",
-    "choose": "Choose options",
-    "view": "View product",
-    "remove": "Remove",
-    "removeLabel": "Remove {name} from your wishlist"
+    "cancel": "Cancel"
   }
 }
