@@ -58,7 +58,7 @@ export const PageLoader = ({ label, logoAlt }: { label: string; logoAlt: string 
             <rect x="126" y="72" width="10" height="38" rx="4" className={styles.legNear} />
             <rect x="125" y="106" width="12" height="7" rx="2" className={styles.hoof} />
           </g>
-          {/* Head: neck, horns, ear, face, muzzle, eye; it nods as the cow runs. */}
+          {/* Head: neck, horns, ear, face, muzzle, two eyes; it nods as the cow runs. */}
           <g className={styles.head}>
             <path d="M140 52 C146 40 152 34 160 32 L168 46 C160 54 152 60 146 64z" className={styles.body} />
             <path d="M158 24 c-4 -6 -2 -12 2 -14 c-1 5 1 9 4 11z" className={styles.horn} />
@@ -69,8 +69,15 @@ export const PageLoader = ({ label, logoAlt }: { label: string; logoAlt: string 
             <ellipse cx="176" cy="48" rx="11" ry="8" className={styles.muzzle} />
             <circle cx="173" cy="47" r="1.6" className={styles.nostril} />
             <circle cx="180" cy="47" r="1.6" className={styles.nostril} />
-            <circle cx="170" cy="35" r="2.6" className={styles.eye} />
-            <circle cx="170.8" cy="34.2" r="0.9" className={styles.shine} />
+            {/* Two eyes, the far one a little smaller as the face turns toward us; both blink now and then. */}
+            <g className={styles.eyeFar}>
+              <circle cx="162" cy="35.5" r="2.3" className={styles.eye} />
+              <circle cx="162.7" cy="34.8" r="0.8" className={styles.shine} />
+            </g>
+            <g className={styles.eyeNear}>
+              <circle cx="173" cy="34.5" r="2.6" className={styles.eye} />
+              <circle cx="173.8" cy="33.7" r="0.9" className={styles.shine} />
+            </g>
           </g>
         </g>
       </svg>

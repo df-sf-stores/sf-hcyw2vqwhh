@@ -74,3 +74,17 @@ export const WishlistLink = ({ className, iconClassName, hiddenClassName }: { cl
     </Link>
   )
 }
+
+/** The mobile menu's Wishlist row: heart, the word, and how many products it holds. */
+export const WishlistMenuLink = ({ className, iconClassName }: { className?: string; iconClassName?: string }) => {
+  const { t } = useStorefront()
+  const { count } = useShared()
+  return (
+    <Link href="/account/wishlist/" className={className}>
+      <svg className={iconClassName} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z" />
+      </svg>
+      <span>{count > 0 ? t('common.tools.wishlistCount', { count }) : t('common.tools.wishlist')}</span>
+    </Link>
+  )
+}

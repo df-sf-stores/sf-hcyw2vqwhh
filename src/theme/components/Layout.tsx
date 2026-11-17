@@ -2,8 +2,10 @@ import type { ReactNode } from 'react'
 import { ConsentBanner, ConsentSettingsButton, Link, PoweredBy, PreviewBanner, StoreLogo, ThemeImage, useCollections, useStorefront } from '@dripfunnel/storefront-core/theme'
 import { FloatingActions } from './interactive/FloatingActions'
 import { Menu } from './interactive/Menu'
+import { MenuSearch } from './interactive/MenuSearch'
 import { PageLoader } from './interactive/PageLoader'
-import { WishlistLink, WishlistProvider } from './interactive/Wishlist'
+import { SiteBanner } from './SiteBanner'
+import { WishlistLink, WishlistMenuLink, WishlistProvider } from './interactive/Wishlist'
 import floating from '../styles/floating.module.css'
 import styles from '../styles/layout.module.css'
 
@@ -74,13 +76,18 @@ export const Layout = ({ children }: { children: ReactNode }) => {
           </Link>
           <Menu label={t('common.nav.menu')}>
             <nav className={styles.nav} aria-label={t('common.nav.label')}>
-              <Link href="/search/" className={styles.navLink}>
+              {/* Phones and tablets only: search and wishlist move from the header bar into the top of the menu. */}
+              <div className={styles.menuTop}>
+                <MenuSearch className={styles.menuSearch} />
+                <WishlistMenuLink className={`${styles.navLink} ${styles.menuWishlist}`} iconClassName={styles.icon} />
+              </div>
+              <Link href="/collections/all/" className={styles.navLink}>
                 {t('common.nav.shop')}
               </Link>
               {/* The store's collections: a dropdown on desktop, a list inside the opened menu on mobile. */}
               {collections.length ? (
                 <div className={styles.dropdown}>
-                  <Link href="/search/" className={`${styles.navLink} ${styles.dropdownToggle}`}>
+                  <Link href="/collections/all/" className={`${styles.navLink} ${styles.dropdownToggle}`}>
                     {t('common.nav.categories')}
                     <svg className={styles.chevron} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                       <path d="M6 9l6 6 6-6" />
@@ -106,7 +113,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
             </nav>
           </Menu>
           <div className={styles.tools}>
-            <Link href="/search/" className={styles.tool}>
+            <Link href="/search/" className={`${styles.tool} ${styles.desktopTool}`}>
               <svg className={styles.icon} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <circle cx="11" cy="11" r="6.5" />
                 <path d="M16 16l4.5 4.5" />
@@ -120,7 +127,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
               </svg>
               <span className={styles.hidden}>{t('common.tools.account')}</span>
             </Link>
-            <WishlistLink className={styles.tool} iconClassName={styles.icon} hiddenClassName={styles.hidden} />
+            <WishlistLink className={`${styles.tool} ${styles.desktopTool}`} iconClassName={styles.icon} hiddenClassName={styles.hidden} />
             <Link href="/cart/" className={styles.tool}>
               <svg className={styles.icon} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M5.5 8h13l-1 12h-11z" />
@@ -132,6 +139,8 @@ export const Layout = ({ children }: { children: ReactNode }) => {
         </div>
       </header>
       <main className={styles.main}>{children}</main>
+      {/* The green banner above the footer, on every page. */}
+      <SiteBanner />
       <footer className={styles.footer}>
         <div className={styles.columns}>
           <div className={styles.about}>
@@ -156,7 +165,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
           </div>
           <div className={styles.links}>
             <h2 className={styles.heading}>{t('common.footer.shop')}</h2>
-            <Link href="/search/" className={styles.footerLink}>
+            <Link href="/collections/all/" className={styles.footerLink}>
               {t('common.footer.all')}
             </Link>
             <Link href="/about/" className={styles.footerLink}>

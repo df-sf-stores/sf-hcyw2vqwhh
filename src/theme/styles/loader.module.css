@@ -96,6 +96,28 @@
   fill: #fff;
 }
 
+/* Both eyes blink together, each squashing about its own centre. */
+.eyeFar,
+.eyeNear {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: blink 2.4s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes blink {
+  0%,
+  44%,
+  52%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  48% {
+    transform: scaleY(0.1);
+  }
+}
+
 .tailLine {
   fill: none;
   stroke: #1b2a1d;
@@ -285,6 +307,8 @@
   .head,
   .tail,
   .dust,
+  .eyeFar,
+  .eyeNear,
   .bar {
     animation: none;
   }

@@ -401,6 +401,13 @@
   transition: transform 0.3s;
 }
 
+/* A cut-out on white (the cattle feed cow): shown whole, set high so the name label doesn't cover it. */
+.tileCutout {
+  background: #fff;
+  object-fit: contain;
+  object-position: center 25%;
+}
+
 .tile:hover .tileImage {
   transform: scale(1.04);
 }
@@ -520,8 +527,9 @@
   text-align: center;
 }
 
+/* Wide lines: the heading runs up to 1100px across before it wraps. */
 .bannerHeading {
-  max-width: 26ch;
+  max-width: 1100px;
   margin: 0;
   font-family: var(--heading-font);
   font-size: 26px;
@@ -530,7 +538,7 @@
 }
 
 .body {
-  max-width: 56ch;
+  max-width: 900px;
   margin: 0;
   color: var(--hero-soft);
   font-size: 16px;

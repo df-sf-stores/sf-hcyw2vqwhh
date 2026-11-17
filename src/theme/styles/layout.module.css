@@ -235,8 +235,9 @@
   flex: 1;
 }
 
+/* No top margin: the green banner (banner.module.css) sits right above the footer and keeps the gap from the page. */
 .footer {
-  margin-top: 56px;
+  margin-top: 0;
   /* No bottom padding: the bottom bar (.baseInner) is the footer's last row. */
   padding: 40px 16px 0;
   background: var(--footer-bg);
@@ -670,5 +671,85 @@
 
   .about {
     grid-column: auto;
+  }
+}
+
+/*
+ * Phones and tablets (below 900px): search and wishlist live in the menu, not the header bar.
+ * The menu opens with a search bar, then the Wishlist row, then the rest of the links.
+ */
+.desktopTool {
+  display: none;
+}
+
+.menuTop {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 4px;
+  padding: 4px 0 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.menuSearch {
+  display: flex;
+  gap: 8px;
+  padding: 4px 4px 6px;
+}
+
+.menuSearch label {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.menuSearch input {
+  min-width: 0;
+  min-height: 44px;
+  box-sizing: border-box;
+  flex: 1;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--button-radius);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  /* 16px keeps iPhone Safari from zooming in when the field is tapped. */
+  font-size: 16px;
+}
+
+.menuSearch button {
+  min-height: 44px;
+  flex: none;
+  padding: 0 16px;
+  border: 1px solid var(--accent);
+  border-radius: var(--button-radius);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.menuSearch input:focus-visible,
+.menuSearch button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.menuWishlist {
+  gap: 10px;
+}
+
+@media (min-width: 900px) {
+  .desktopTool {
+    display: inline-flex;
+  }
+
+  .menuTop {
+    display: none;
   }
 }

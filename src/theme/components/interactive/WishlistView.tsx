@@ -64,7 +64,7 @@ export const WishlistView = () => {
       ) : null}
       {wishlist.status === 'ready' && wishlist.items.length === 0 ? (
         <Notice title={t('pages.wishlist.empty')} lead={t('pages.wishlist.emptyLead')}>
-          <Link href="/search/" className={shop.primary}>
+          <Link href="/collections/all/" className={shop.primary}>
             {t('pages.wishlist.browse')}
           </Link>
         </Notice>

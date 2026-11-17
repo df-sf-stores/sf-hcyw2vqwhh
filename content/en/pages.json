@@ -83,15 +83,17 @@
   },
   "about": {
     "kicker": "About us",
-    "title": "About {store}",
-    "lead": "We make Ayurvedic nutrition for dairy animals, so that every cow, calf and bull on your farm can grow strong, stay healthy and give its best.",
+    "title": "Welcome to {store}",
+    "lead": "We are a leading cattle feed and supplement producing company that boasts a team of well-experienced and expert veterinarians.",
     "logoAlt": "{store} logo: Towards Healthy Life",
     "tagline": "Towards Healthy Life",
     "story": {
-      "title": "Our story",
-      "first": "{store} began with a simple belief: a healthy herd starts with good nutrition. Minerals and vitamins are only a small part of what an animal eats, but when they run short the whole farm feels it, in lower milk, weaker calves, slower growth and missed breeding.",
-      "second": "So we set out to close those gaps. We blend pure Ayurvedic herbs with the essential macro and micro minerals, vitamins, protein, prebiotics and probiotics that dairy animals need, and pack them into simple supplements that mix straight into daily feed.",
-      "based": "We are based in {city}, {region}, and work with dairy farmers and dealers who want healthier animals and better returns."
+      "title": "Who we are",
+      "first": "Our team is dedicated to providing the highest quality products and services to our customers, and we have our own unique formula for cattle feed and supplements that has been developed through extensive research and testing.",
+      "second": "Our team of experts have a deep understanding of the nutritional needs of cattle and have combined their knowledge with the latest scientific research to create a formula that is both effective and safe for the animals. We only use the highest quality ingredients in our products, and we are committed to providing our customers with the best possible service and support.",
+      "third": "We are proud of our reputation for producing high-quality, safe and sustainable products that support the growth and development of cattle. Our products are widely used in the region and we have a strong customer base. We are constantly working to improve our offerings and stay at the forefront of the industry, to provide the best possible solutions for our customers.",
+      "based": "We are based in {city}, {region}.",
+      "pictureAlt": "A healthy black and white dairy cow."
     },
     "values": {
       "title": "What we stand for",
@@ -155,6 +157,18 @@
       "body": "Whether you run a dairy farm or a dealership, we would love to hear from you.",
       "shop": "Shop now",
       "contact": "Contact us"
+    },
+    "purpose": {
+      "title": "Our vision and mission",
+      "vision": {
+        "title": "Vision",
+        "body": "Our vision is to be the leading provider of high-quality, sustainable and innovative cattle feed and supplement products in the region."
+      },
+      "mission": {
+        "title": "Mission",
+        "body": "Our mission is to improve the health and well-being of cattle by providing the highest quality products and services, utilizing the latest research and technology, and incorporating traditional healing practices."
+      },
+      "goal": "Our goal is to consistently exceed customer expectations by providing safe, effective and sustainable products, and by offering exceptional customer service and support. We strive to be a trusted partner for our customers, and to continuously improve our products and services to meet the evolving needs of the industry."
     }
   },
   "contact": {
@@ -279,7 +293,7 @@
       "title": "Give your bull the Ox'ellent edge",
       "body": "Order for your farm, or talk to us about bulk orders for dairies, breeders and cooperatives.",
       "shop": "Shop now",
-      "contact": "Ask about bulk orders"
+      "contact": "Inquire Now"
     }
   }
 }

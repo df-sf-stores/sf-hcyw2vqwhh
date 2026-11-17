@@ -79,7 +79,7 @@ export const OxellentPage = () => {
             <h2 className={styles.ctaTitle}>{t('pages.oxellent.cta.title')}</h2>
             <p className={styles.ctaBody}>{t('pages.oxellent.cta.body')}</p>
             <div className={styles.ctaActions}>
-              <Link href="/search/" className={styles.primary}>
+              <Link href="/collections/all/" className={styles.primary}>
                 {t('pages.oxellent.cta.shop')}
               </Link>
               <Link href="/contact/" className={styles.secondary}>

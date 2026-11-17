@@ -109,7 +109,7 @@ export const ElixirPage = () => {
           <h2 className={styles.ctaTitle}>{t('elixir.cta.title')}</h2>
           <p className={styles.ctaBody}>{t('elixir.cta.body')}</p>
           <div className={styles.actions}>
-            <Link href="/search/" className={styles.primary}>
+            <Link href="/collections/all/" className={styles.primary}>
               {t('elixir.cta.shop')}
             </Link>
             <Link href="/contact/" className={styles.secondary}>

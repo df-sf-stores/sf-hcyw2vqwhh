@@ -16,6 +16,12 @@
     "wishlistCount": "{count, plural, one {Wishlist, # product} other {Wishlist, # products}}",
     "wishlistMany": "99+"
   },
+  "banner": {
+    "title": "Best Biogenetics Product Provider Company in {city}, {region}, India",
+    "titlePlain": "Best Biogenetics Product Provider Company in India",
+    "body": "Become top-of-the-flight specialist after graduating!",
+    "action": "Inquire Now"
+  },
   "loader": {
     "label": "Loading",
     "logo": "{store}"

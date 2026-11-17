@@ -1,0 +1,83 @@
+/* The full-width green banner above the footer on every page (components/SiteBanner.tsx). */
+
+.banner {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 56px;
+  padding: 48px 16px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  text-align: center;
+}
+
+/* Wide lines: the heading runs up to 1100px across before it wraps. */
+.heading {
+  max-width: 1100px;
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: 26px;
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-spacing);
+  line-height: 1.15;
+  text-transform: var(--heading-case);
+}
+
+.body {
+  max-width: 900px;
+  margin: 0;
+  color: var(--hero-soft);
+  font-size: 16px;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 48px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: 0 26px;
+  border-radius: var(--button-radius);
+  background: var(--gold);
+  color: var(--gold-on);
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.button:hover {
+  filter: brightness(0.94);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 2px;
+}
+
+@media (max-width: 379px) {
+  .banner {
+    padding-inline: 12px;
+  }
+}
+
+@media (min-width: 640px) {
+  .banner {
+    padding: 56px 32px;
+  }
+
+  .heading {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 900px) {
+  .banner {
+    padding: 72px 56px;
+  }
+
+  .heading {
+    font-size: 36px;
+  }
+}

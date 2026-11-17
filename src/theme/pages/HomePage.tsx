@@ -33,6 +33,9 @@ const highlights = [
   ['sack', 'immunity'],
 ] as const
 
+// The cattle feed category shows the theme's cow picture (src/theme/media/cow.jpg) instead of its own.
+const isCattleFeed = (name: string, href: string) => /cattle[\s-]*feed/i.test(`${name} ${href}`)
+
 const Icon = ({ kind }: { kind: IconKind }) => (
   <svg className={styles.icon} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     {icons[kind].map((d) => (
@@ -78,7 +81,7 @@ export const HomePage = () => {
             <h1 className={styles.title}>{t('home.hero.title', { store: store.name })}</h1>
             <p className={styles.lead}>{t('home.hero.lead')}</p>
             <div className={styles.actions}>
-              <Link href="/search/" className={styles.button}>
+              <Link href="/collections/all/" className={styles.button}>
                 {t('home.hero.shop')}
               </Link>
               <Link href="/contact/" className={styles.ghost}>
@@ -127,7 +130,11 @@ export const HomePage = () => {
               {collections.map((c) => (
                 <li key={c.id}>
                   <Link href={c.href} className={styles.tile}>
-                    {c.image ? <Image image={c.image} alt={c.name} ratio={1} sizes="(min-width: 900px) 25vw, 50vw" className={styles.tileImage} /> : null}
+                    {isCattleFeed(c.name, c.href) ? (
+                      <ThemeImage src="cow.jpg" alt={c.name} ratio={540 / 360} sizes="(min-width: 900px) 25vw, 50vw" className={`${styles.tileImage} ${styles.tileCutout}`} />
+                    ) : c.image ? (
+                      <Image image={c.image} alt={c.name} ratio={1} sizes="(min-width: 900px) 25vw, 50vw" className={styles.tileImage} />
+                    ) : null}
                     <span className={styles.tileName}>{c.name}</span>
                   </Link>
                 </li>
@@ -201,14 +208,6 @@ export const HomePage = () => {
             ))}
           </ol>
         </div>
-      </section>
-
-      <section className={styles.banner}>
-        <h2 className={styles.bannerHeading}>{t('home.banner.title')}</h2>
-        <p className={styles.body}>{t('home.banner.body')}</p>
-        <Link href="/contact/" className={styles.bannerButton}>
-          {t('home.banner.action')}
-        </Link>
       </section>
     </Layout>
   )

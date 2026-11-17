@@ -45,11 +45,33 @@ export const AboutPage = () => {
           </div>
         </header>
 
+        {/* Who we are: text on the left, the cow picture on the right, in the logo's column (below the text on phones). */}
+        <section className={styles.storyRow}>
+          <div className={styles.section}>
+            <h2 className={styles.heading}>{t('pages.about.story.title')}</h2>
+            <p className={styles.body}>{t('pages.about.story.first', { store: store.name })}</p>
+            <p className={styles.body}>{t('pages.about.story.second')}</p>
+            <p className={styles.body}>{t('pages.about.story.third')}</p>
+            {city && region ? <p className={styles.body}>{t('pages.about.story.based', { city, region })}</p> : null}
+          </div>
+          <figure className={styles.storyPicture}>
+            <ThemeImage src="cow.jpg" alt={t('pages.about.story.pictureAlt')} ratio={540 / 360} sizes="(min-width: 900px) 420px, 90vw" className={styles.storyImage} />
+          </figure>
+        </section>
+
         <section className={styles.section}>
-          <h2 className={styles.heading}>{t('pages.about.story.title')}</h2>
-          <p className={styles.body}>{t('pages.about.story.first', { store: store.name })}</p>
-          <p className={styles.body}>{t('pages.about.story.second')}</p>
-          {city && region ? <p className={styles.body}>{t('pages.about.story.based', { city, region })}</p> : null}
+          <h2 className={styles.heading}>{t('pages.about.purpose.title')}</h2>
+          <ul className={`${styles.values} ${styles.pair}`}>
+            <li className={`${styles.value} ${styles.statement}`}>
+              <h3 className={styles.valueTitle}>{t('pages.about.purpose.vision.title')}</h3>
+              <p className={styles.valueBody}>{t('pages.about.purpose.vision.body')}</p>
+            </li>
+            <li className={`${styles.value} ${styles.statement}`}>
+              <h3 className={styles.valueTitle}>{t('pages.about.purpose.mission.title')}</h3>
+              <p className={styles.valueBody}>{t('pages.about.purpose.mission.body')}</p>
+            </li>
+          </ul>
+          <p className={styles.body}>{t('pages.about.purpose.goal')}</p>
         </section>
 
         <section className={styles.section}>
@@ -139,7 +161,7 @@ export const AboutPage = () => {
           <h2 className={styles.ctaTitle}>{t('pages.about.cta.title')}</h2>
           <p className={styles.ctaBody}>{t('pages.about.cta.body')}</p>
           <div className={styles.actions}>
-            <Link href="/search/" className={styles.primary}>
+            <Link href="/collections/all/" className={styles.primary}>
               {t('pages.about.cta.shop')}
             </Link>
             <Link href="/contact/" className={styles.secondary}>
