@@ -16,6 +16,10 @@
     "wishlistCount": "{count, plural, one {Wishlist, # product} other {Wishlist, # products}}",
     "wishlistMany": "99+"
   },
+  "loader": {
+    "label": "Loading",
+    "logo": "{store}"
+  },
   "floating": {
     "top": "Back to top",
     "whatsapp": "Chat with us"

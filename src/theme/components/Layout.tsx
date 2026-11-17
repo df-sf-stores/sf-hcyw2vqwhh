@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { ConsentBanner, ConsentSettingsButton, Link, PoweredBy, PreviewBanner, StoreLogo, ThemeImage, useCollections, useStorefront } from '@dripfunnel/storefront-core/theme'
 import { FloatingActions } from './interactive/FloatingActions'
 import { Menu } from './interactive/Menu'
+import { PageLoader } from './interactive/PageLoader'
 import { WishlistLink, WishlistProvider } from './interactive/Wishlist'
 import floating from '../styles/floating.module.css'
 import styles from '../styles/layout.module.css'
@@ -245,6 +246,8 @@ export const Layout = ({ children }: { children: ReactNode }) => {
         ) : null}
       </FloatingActions>
       <ConsentBanner t={t} className={styles.consent} />
+      {/* Loading screen: logo and a running cow, over the page until it is ready. */}
+      <PageLoader label={t('common.loader.label')} logoAlt={t('common.loader.logo', { store: store.name })} />
     </div>
     </WishlistProvider>
   )
