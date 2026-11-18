@@ -12,6 +12,7 @@
     "search": "Search",
     "account": "Account",
     "cart": "Cart",
+    "cartCount": "{count, plural, one {Cart, # item} other {Cart, # items}}",
     "wishlist": "Wishlist",
     "wishlistCount": "{count, plural, one {Wishlist, # product} other {Wishlist, # products}}",
     "wishlistMany": "99+"

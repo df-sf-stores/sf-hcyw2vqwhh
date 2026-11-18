@@ -4,14 +4,14 @@ import { useEffect, useState } from 'react'
 import { ThemeImage } from '@dripfunnel/storefront-core/theme'
 import styles from '../../styles/loader.module.css'
 
-// The loading screen: the logo above a running cow, over the page while it loads.
-// It is in the page's first HTML, so it shows at once; after the page is ready it fades out and goes.
+// The loading screen: the logo above a running cow, shown on the home page only (Layout's `loader`), so moving between
+// pages never brings it back. It is in the page's first HTML, so it shows at once; once scripts run it fades out and goes.
 // If scripts never run, the CSS fades it out by itself (loader.module.css, .loader's animation).
 export const PageLoader = ({ label, logoAlt }: { label: string; logoAlt: string }) => {
   const [phase, setPhase] = useState<'show' | 'hide' | 'gone'>('show')
   useEffect(() => {
-    const hide = setTimeout(() => setPhase('hide'), 1200)
-    const gone = setTimeout(() => setPhase('gone'), 1700)
+    const hide = setTimeout(() => setPhase('hide'), 700)
+    const gone = setTimeout(() => setPhase('gone'), 1200)
     return () => {
       clearTimeout(hide)
       clearTimeout(gone)

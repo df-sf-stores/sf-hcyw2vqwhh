@@ -1,0 +1,303 @@
+/* The checkout (components/interactive/CheckoutView.tsx): steps on the left, the order summary beside them. */
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.alert {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--danger);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.steps {
+  counter-reset: step;
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  counter-increment: step;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.stepOpen {
+  border-color: var(--accent);
+}
+
+.stepHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.stepTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: 18px;
+  font-weight: var(--heading-weight);
+}
+
+.stepNumber {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.stepNumber:empty::before {
+  content: counter(step);
+}
+
+.stepDone {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.tick {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.change {
+  padding: 4px;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.done {
+  margin: 8px 0 0 38px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.form,
+.fields {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.fields {
+  margin-top: 0;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.phone select,
+.phone input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 46px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 400;
+}
+
+.field small {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.field small[role='alert'] {
+  color: var(--danger);
+}
+
+.field input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.phone {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  gap: 8px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.choices {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.choices legend {
+  margin-bottom: 10px;
+  padding: 0;
+  font-weight: 600;
+}
+
+.option,
+.optionOn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.optionOn {
+  border-color: var(--accent);
+  background: var(--tint);
+}
+
+.option input,
+.optionOn input {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  accent-color: var(--accent);
+}
+
+.optionBody {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+}
+
+.optionName {
+  display: grid;
+  gap: 2px;
+  font-weight: 600;
+}
+
+.optionNote {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.optionPrice {
+  font-weight: 600;
+  --df-sealed-size: 15px;
+}
+
+.payment {
+  display: block;
+}
+
+.note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.place {
+  width: 100%;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.sideTitle {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: 22px;
+  font-weight: var(--heading-weight);
+}
+
+.summary {
+  --df-sealed-size: 15px;
+  --df-sealed-saving: var(--accent);
+}
+
+.secure {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.change:focus-visible,
+.field input:focus-visible,
+.field select:focus-visible,
+.phone select:focus-visible,
+.phone input:focus-visible,
+.option input:focus-visible,
+.optionOn input:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) 400px;
+    gap: 32px;
+  }
+
+  .side {
+    position: sticky;
+    top: 96px;
+  }
+}

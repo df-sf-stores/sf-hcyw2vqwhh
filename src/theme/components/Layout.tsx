@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { ConsentBanner, ConsentSettingsButton, Link, PoweredBy, PreviewBanner, StoreLogo, ThemeImage, useCollections, useStorefront } from '@dripfunnel/storefront-core/theme'
+import { CartLink } from './interactive/CartLink'
 import { FloatingActions } from './interactive/FloatingActions'
 import { Menu } from './interactive/Menu'
 import { MenuSearch } from './interactive/MenuSearch'
@@ -56,7 +57,8 @@ const ContactIcon = ({ kind }: { kind: keyof typeof contactIcons | 'whatsapp' })
   </span>
 )
 
-export const Layout = ({ children }: { children: ReactNode }) => {
+// `loader`: the home page's loading screen; other pages open without it.
+export const Layout = ({ children, loader = false }: { children: ReactNode; loader?: boolean }) => {
   const { store, t, mode, poweredBy } = useStorefront()
   const { collections } = useCollections({ first: 20 })
   const socials = networks.flatMap((network) => {
@@ -128,13 +130,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
               <span className={styles.hidden}>{t('common.tools.account')}</span>
             </Link>
             <WishlistLink className={`${styles.tool} ${styles.desktopTool}`} iconClassName={styles.icon} hiddenClassName={styles.hidden} />
-            <Link href="/cart/" className={styles.tool}>
-              <svg className={styles.icon} viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M5.5 8h13l-1 12h-11z" />
-                <path d="M9 8V6.5a3 3 0 016 0V8" />
-              </svg>
-              <span className={styles.hidden}>{t('common.tools.cart')}</span>
-            </Link>
+            <CartLink className={styles.tool} iconClassName={styles.icon} hiddenClassName={styles.hidden} />
           </div>
         </div>
       </header>
@@ -255,8 +251,8 @@ export const Layout = ({ children }: { children: ReactNode }) => {
         ) : null}
       </FloatingActions>
       <ConsentBanner t={t} className={styles.consent} />
-      {/* Loading screen: logo and a running cow, over the page until it is ready. */}
-      <PageLoader label={t('common.loader.label')} logoAlt={t('common.loader.logo', { store: store.name })} />
+      {/* Loading screen: logo and a running cow, on the home page only. */}
+      {loader ? <PageLoader label={t('common.loader.label')} logoAlt={t('common.loader.logo', { store: store.name })} /> : null}
     </div>
     </WishlistProvider>
   )

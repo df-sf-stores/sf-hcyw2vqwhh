@@ -49,7 +49,7 @@ export const HomePage = () => {
   const { collections, status } = useCollections({ first: 4 })
   const newest = useProducts({ sort: 'newest', first: 4 })
   return (
-    <Layout>
+    <Layout loader>
       <HeroSlider
         // Each slide has a wide desktop picture and a square mobile one; CSS shows one by screen width (home.module.css).
         slides={[
