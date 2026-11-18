@@ -131,7 +131,7 @@ export const HomePage = () => {
                 <li key={c.id}>
                   <Link href={c.href} className={styles.tile}>
                     {isCattleFeed(c.name, c.href) ? (
-                      <ThemeImage src="cow.jpg" alt={c.name} ratio={540 / 360} sizes="(min-width: 900px) 25vw, 50vw" className={`${styles.tileImage} ${styles.tileCutout}`} />
+                      <ThemeImage src="cow.png" alt={c.name} ratio={540 / 360} sizes="(min-width: 900px) 25vw, 50vw" className={`${styles.tileImage} ${styles.tileCutout}`} />
                     ) : c.image ? (
                       <Image image={c.image} alt={c.name} ratio={1} sizes="(min-width: 900px) 25vw, 50vw" className={styles.tileImage} />
                     ) : null}

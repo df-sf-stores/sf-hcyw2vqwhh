@@ -55,7 +55,7 @@ export const AboutPage = () => {
             {city && region ? <p className={styles.body}>{t('pages.about.story.based', { city, region })}</p> : null}
           </div>
           <figure className={styles.storyPicture}>
-            <ThemeImage src="cow.jpg" alt={t('pages.about.story.pictureAlt')} ratio={540 / 360} sizes="(min-width: 900px) 420px, 90vw" className={styles.storyImage} />
+            <ThemeImage src="cow.png" alt={t('pages.about.story.pictureAlt')} ratio={540 / 360} sizes="(min-width: 900px) 420px, 90vw" className={styles.storyImage} />
           </figure>
         </section>
 
